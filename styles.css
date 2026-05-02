@@ -276,6 +276,7 @@ text-overflow: ellipsis; }
             .stat-group { justify-content: center; }
         }
         @media (max-width: 600px) {
+			.btn-enquiry { display: none; }
             .top-bar-left { display: none; }
             .top-bar-contact span:first-child { display: none; }
             .logo img { height: 44px; }
