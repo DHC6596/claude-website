@@ -51,3 +51,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// WhatsApp Popup Logic
+const popup = document.getElementById('wa-popup');
+const openButtons = document.querySelectorAll('.open-wa');
+const closeBtn = document.getElementById('wa-close');
+
+const phone = "919909550405";
+const message = "Hi, I'd like to enquire about your products and services.";
+
+const normalLink = document.getElementById('wa-normal');
+const businessLink = document.getElementById('wa-business');
+
+// Open popup
+openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        popup.style.display = "flex";
+    });
+});
+
+// Close popup
+closeBtn.addEventListener('click', () => {
+    popup.style.display = "none";
+});
+
+// Links
+normalLink.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+// WhatsApp Business (Android specific deep link)
+businessLink.href = `intent://send?phone=${phone}#Intent;scheme=smsto;package=com.whatsapp.w4b;end`;
